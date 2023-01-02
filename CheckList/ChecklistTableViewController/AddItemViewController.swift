@@ -7,8 +7,18 @@
 
 import UIKit
 
+protocol AddItemViewControllerDelegate: AnyObject {
+    
+    func addItemViewControllerDidCancel (_ controller: AddItemViewController)
+    
+    func addItemViewController (_ controller: AddItemViewController, didFinishing item: ChecklistItem)
+}
+
+
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
 
+    weak var delegate : AddItemViewControllerDelegate?
+    
     @IBOutlet weak var doneButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var textFieldOutlet: UITextField!
     
@@ -30,9 +40,13 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
   //MARK - IBACTIONS
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
+        let item = ChecklistItem()
+        item.text = textFieldOutlet.text!
         
-        print("textField text: \(textFieldOutlet.text ?? "no text")")
-        navigationController?.popViewController(animated: true)
+        delegate?.addItemViewController(self, didFinishing: item)
+//
+//        print("textField text: \(textFieldOutlet.text ?? "no text")")
+//        navigationController?.popViewController(animated: true)
     }
     @IBAction func keybordDoneButton(_ sender: UITextField) {
 //        print("textField text: \(textFieldOutlet.text ?? "no text Keyboard")")
@@ -43,7 +57,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
+        delegate?.addItemViewControllerDidCancel(self)
     }
     
     //MARK - Tablew view controller Delegate
