@@ -14,6 +14,7 @@
 		F626A7B6295CA83D00F0EC05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F626A7B5295CA83D00F0EC05 /* Assets.xcassets */; };
 		F626A7B9295CA83D00F0EC05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F626A7B7295CA83D00F0EC05 /* LaunchScreen.storyboard */; };
 		F626A7C2295DDED000F0EC05 /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F626A7C1295DDED000F0EC05 /* CheckListItem.swift */; };
+		F6A12D39296302C5006BC554 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A12D38296302C5006BC554 /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F626A7B8295CA83D00F0EC05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F626A7BA295CA83D00F0EC05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F626A7C1295DDED000F0EC05 /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
+		F6A12D38296302C5006BC554 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +66,6 @@
 				F626A7B5295CA83D00F0EC05 /* Assets.xcassets */,
 				F626A7B7295CA83D00F0EC05 /* LaunchScreen.storyboard */,
 				F626A7BA295CA83D00F0EC05 /* Info.plist */,
-				F626A7C1295DDED000F0EC05 /* CheckListItem.swift */,
 			);
 			path = CheckList;
 			sourceTree = "<group>";
@@ -72,8 +73,10 @@
 		F626A7C0295CA9A500F0EC05 /* ChecklistTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F626A7C1295DDED000F0EC05 /* CheckListItem.swift */,
 				F626A7B0295CA83400F0EC05 /* ChecklistViewController.swift */,
 				F626A7B2295CA83400F0EC05 /* Main.storyboard */,
+				F6A12D38296302C5006BC554 /* AddItemViewController.swift */,
 			);
 			path = ChecklistTableViewController;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6A12D39296302C5006BC554 /* AddItemViewController.swift in Sources */,
 				F626A7B1295CA83400F0EC05 /* ChecklistViewController.swift in Sources */,
 				F626A7AD295CA83400F0EC05 /* AppDelegate.swift in Sources */,
 				F626A7AF295CA83400F0EC05 /* SceneDelegate.swift in Sources */,
