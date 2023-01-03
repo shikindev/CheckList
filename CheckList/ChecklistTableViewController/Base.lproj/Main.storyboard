@@ -16,27 +16,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="uEE-BN-HdJ">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="uEE-BN-HdJ">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="48.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uEE-BN-HdJ" id="vhN-yz-QdT">
-                                    <rect key="frame" x="0.0" y="0.0" width="373.5" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="357" height="48.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoA-Bz-JBC">
-                                            <rect key="frame" x="20" y="11" width="346" height="21.5"/>
+                                            <rect key="frame" x="29" y="4" width="320" height="40.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="QeP-mE-ze9"/>
+                                                <constraint firstAttribute="width" constant="320" id="jpA-ru-f7Y"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="297" id="lUx-p3-Y3M"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g76-IJ-cO8">
+                                            <rect key="frame" x="10" y="4" width="25" height="40.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="CLi-1l-wa6"/>
+                                                <constraint firstAttribute="width" constant="25" id="Yvo-8Q-OQm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="highlightedColor" systemColor="labelColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="SoA-Bz-JBC" firstAttribute="leading" secondItem="vhN-yz-QdT" secondAttribute="leadingMargin" id="4HS-9p-Ksc"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="SoA-Bz-JBC" secondAttribute="trailing" constant="-0.5" id="QJj-Pi-QNg"/>
-                                        <constraint firstItem="SoA-Bz-JBC" firstAttribute="centerY" secondItem="vhN-yz-QdT" secondAttribute="centerY" id="eFZ-sS-meq"/>
-                                        <constraint firstItem="SoA-Bz-JBC" firstAttribute="top" secondItem="vhN-yz-QdT" secondAttribute="topMargin" id="pGE-cG-ev8"/>
+                                        <constraint firstAttribute="bottom" secondItem="SoA-Bz-JBC" secondAttribute="bottom" constant="4" id="3BX-c4-NgN"/>
+                                        <constraint firstItem="SoA-Bz-JBC" firstAttribute="leading" secondItem="g76-IJ-cO8" secondAttribute="trailing" constant="-6" id="7Ty-oA-sHP"/>
+                                        <constraint firstAttribute="bottom" secondItem="g76-IJ-cO8" secondAttribute="bottom" constant="4" id="LPL-GV-8co"/>
+                                        <constraint firstAttribute="bottom" secondItem="g76-IJ-cO8" secondAttribute="bottom" constant="4" id="T0N-2q-GSg"/>
+                                        <constraint firstItem="g76-IJ-cO8" firstAttribute="top" secondItem="vhN-yz-QdT" secondAttribute="top" constant="4" id="hjs-kr-n7B"/>
+                                        <constraint firstItem="g76-IJ-cO8" firstAttribute="leading" secondItem="vhN-yz-QdT" secondAttribute="leading" constant="10" id="mSg-DJ-XP0"/>
+                                        <constraint firstItem="SoA-Bz-JBC" firstAttribute="top" secondItem="vhN-yz-QdT" secondAttribute="top" constant="4" id="qSl-1c-u0j"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="W5N-TZ-0Df" kind="show" identifier="EditItem" trigger="accessoryAction" id="ZpF-9o-vD2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -140,7 +161,13 @@
             <point key="canvasLocation" x="-123.18840579710145" y="96.428571428571431"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZpF-9o-vD2"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -12,12 +12,15 @@ protocol AddItemViewControllerDelegate: AnyObject {
     func addItemViewControllerDidCancel (_ controller: AddItemViewController)
     
     func addItemViewController (_ controller: AddItemViewController, didFinishing item: ChecklistItem)
+    
+    func addItemViewController (_ controller: AddItemViewController, didFinishEditing item: ChecklistItem)
 }
 
 
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
 
     weak var delegate : AddItemViewControllerDelegate?
+    var itemToEdit : ChecklistItem?
     
     @IBOutlet weak var doneButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var textFieldOutlet: UITextField!
@@ -27,6 +30,8 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         
         textFieldOutlet.becomeFirstResponder()
         
+       
+        
     }
     
     override func viewDidLoad() {
@@ -34,24 +39,27 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
 
         navigationItem.largeTitleDisplayMode = .never
         
+        if let item = itemToEdit {
+            title = "Edit Item"
+            textFieldOutlet.text = item.text
+            doneButtonOutlet.isEnabled = true
+        }
         
     }
 
   //MARK - IBACTIONS
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
+        if let item = itemToEdit {
+            item.text = textFieldOutlet.text!
+            delegate?.addItemViewController(self, didFinishEditing: item)
+        } else {
         let item = ChecklistItem()
         item.text = textFieldOutlet.text!
-        
         delegate?.addItemViewController(self, didFinishing: item)
-//
-//        print("textField text: \(textFieldOutlet.text ?? "no text")")
-//        navigationController?.popViewController(animated: true)
+        }
     }
     @IBAction func keybordDoneButton(_ sender: UITextField) {
-//        print("textField text: \(textFieldOutlet.text ?? "no text Keyboard")")
-//        navigationController?.popViewController(animated: true)
-//
         doneButton(doneButtonOutlet)
         
     }
