@@ -68,6 +68,7 @@
 			children = (
 				F626A7AC295CA83400F0EC05 /* AppDelegate.swift */,
 				F626A7AE295CA83400F0EC05 /* SceneDelegate.swift */,
+				F626A7B2295CA83400F0EC05 /* Main.storyboard */,
 				F62F7E1A2965D1F000F4683F /* AllLists */,
 				F626A7C0295CA9A500F0EC05 /* ChecklistTableViewController */,
 				F626A7B5295CA83D00F0EC05 /* Assets.xcassets */,
@@ -80,7 +81,6 @@
 		F626A7C0295CA9A500F0EC05 /* ChecklistTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F626A7B2295CA83400F0EC05 /* Main.storyboard */,
 				F626A7B0295CA83400F0EC05 /* ChecklistViewController.swift */,
 				F6A12D38296302C5006BC554 /* AddItemViewController.swift */,
 				F626A7C1295DDED000F0EC05 /* CheckListItem.swift */,

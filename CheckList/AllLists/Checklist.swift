@@ -8,8 +8,9 @@
 import UIKit
 import Foundation
 
-class Checklist: NSObject {
+class Checklist: NSObject, Codable {
     var name: String
+    var items = [ChecklistItem]()
     
     init(name: String) {
         self.name = name
