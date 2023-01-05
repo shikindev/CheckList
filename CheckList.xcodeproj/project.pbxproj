@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F60FFF422966E613008A3472 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60FFF412966E613008A3472 /* DataModel.swift */; };
 		F626A7AD295CA83400F0EC05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F626A7AC295CA83400F0EC05 /* AppDelegate.swift */; };
 		F626A7AF295CA83400F0EC05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F626A7AE295CA83400F0EC05 /* SceneDelegate.swift */; };
 		F626A7B1295CA83400F0EC05 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F626A7B0295CA83400F0EC05 /* ChecklistViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F60FFF412966E613008A3472 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		F626A7A9295CA83400F0EC05 /* CheckList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F626A7AC295CA83400F0EC05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F626A7AE295CA83400F0EC05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			children = (
 				F626A7AC295CA83400F0EC05 /* AppDelegate.swift */,
 				F626A7AE295CA83400F0EC05 /* SceneDelegate.swift */,
+				F60FFF412966E613008A3472 /* DataModel.swift */,
 				F626A7B2295CA83400F0EC05 /* Main.storyboard */,
 				F62F7E1A2965D1F000F4683F /* AllLists */,
 				F626A7C0295CA9A500F0EC05 /* ChecklistTableViewController */,
@@ -177,6 +180,7 @@
 				F626A7C2295DDED000F0EC05 /* CheckListItem.swift in Sources */,
 				F62F7E172965C02D00F4683F /* Checklist.swift in Sources */,
 				F62F7E192965D1E900F4683F /* ListDetailViewController.swift in Sources */,
+				F60FFF422966E613008A3472 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
