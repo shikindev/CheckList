@@ -59,7 +59,8 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     }
     func configureText(for cell: UITableViewCell, with item: ChecklistItem) {
         let label = cell.viewWithTag(1000) as! UILabel
-        label.text = item.text
+//        label.text = item.text
+        label.text = "\(item.itemID) \(item.text)"
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

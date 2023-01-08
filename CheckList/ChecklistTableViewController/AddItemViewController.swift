@@ -9,6 +9,9 @@ import UIKit
 
 protocol AddItemViewControllerDelegate: AnyObject {
     
+    
+    
+    
     func addItemViewControllerDidCancel (_ controller: AddItemViewController)
     
     func addItemViewController (_ controller: AddItemViewController, didFinishing item: ChecklistItem)
@@ -19,8 +22,13 @@ protocol AddItemViewControllerDelegate: AnyObject {
 
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var datePicker: UIDatePicker!
     weak var delegate : AddItemViewControllerDelegate?
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+    
     var itemToEdit : ChecklistItem?
+    
+    
     
     @IBOutlet weak var doneButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var textFieldOutlet: UITextField!
@@ -43,6 +51,8 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
             title = "Edit Item"
             textFieldOutlet.text = item.text
             doneButtonOutlet.isEnabled = true
+            shouldRemindSwitch.isOn = item.shouldRemind
+            datePicker.date = item.dueDate
         }
         
     }
@@ -52,10 +62,17 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         if let item = itemToEdit {
             item.text = textFieldOutlet.text!
+            item.shouldRemind = shouldRemindSwitch.isOn
+             item.dueDate = datePicker.date
+            item.sheludeNotification()
             delegate?.addItemViewController(self, didFinishEditing: item)
         } else {
         let item = ChecklistItem()
         item.text = textFieldOutlet.text!
+            item.checked = false
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            item.sheludeNotification()
         delegate?.addItemViewController(self, didFinishing: item)
         }
     }
@@ -68,6 +85,16 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         delegate?.addItemViewControllerDidCancel(self)
     }
     
+    @IBAction func shouldRemindToggled(_ sender: UISwitch) {
+        textFieldOutlet.resignFirstResponder()
+        
+        if sender.isOn {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) {_,_ in
+                ///Nothing
+            }
+        }
+    }
     //MARK - Tablew view controller Delegate
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
